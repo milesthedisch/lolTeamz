@@ -1,0 +1,8 @@
+<h1><%= @team.teamname %></h1>
+<div>
+	<% @all_characters.each do |char| %>
+		<p class="list-item	">
+			<%=char.name %>
+		</p>
+	<% end %>
+</div>
