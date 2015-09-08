@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-
-  resources :characters
-
-  resources :teams
+  resources :teams, :characters
 
   root :to => 'pages#index'
   get '/users/edit' => 'users#edit', :as => :edit_user

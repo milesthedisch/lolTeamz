@@ -7,4 +7,4 @@ require 'typhoeus/adapters/faraday'
     config.adapter = :typhoeus # default is Faraday.default_adapter
   end
 
-  # $taric_client = Taric.new
+  # $taric_client = Taric.new 
