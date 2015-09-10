@@ -17,7 +17,6 @@ class ApplicationController < ActionController::Base
     if @current_user
 
   		@client = Taric.client(region: :oce)
-      binding.pry
   		@summoner_name = @client.summoners_by_names(summoner_name: "#{@current_user.username}")
 
       # .find_by is safer than .find for non-existent IDs because it won't throw an error.
