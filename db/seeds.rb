@@ -19,10 +19,33 @@ t1 = Team.create :teamname => 'General Assembely'
 t2 = Team.create :teamname => 'The Other Team'
 
 User.destroy_all
+ 
+u1 = User.create :username => 'thedischman', :password => 'chicken', :team_id => t1.id
+u2 = User.create :username => 'chodemonster', :password => 'chicken', :team_id => t1.id
+u3 = User.create :username => 'dude123', :password => 'chicken', :team_id => t1.id
+u4 = User.create :username => 'gionmarco', :password => 'chicken', :team_id => t1.id
+u5 = User.create :username => 'whatsupman', :password => 'chicken',	 :team_id => t1.id
 
-u1 = User.create :username => 'thedischman', :password => 'chicken'
-u2 = User.create :username => 'chodemonster', :password => 'chicken'
-u3 = User.create :username => 'dude123', :password => 'chicken'
+Character.all.each do |character|
+	t1.characters << character
+end
+
+Character.all.each do |character|
+	t2.characters << character
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

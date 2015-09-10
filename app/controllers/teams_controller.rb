@@ -1,13 +1,15 @@
-class TeamsController < ApplicationController
- before_action :fetch_all_characters 
+class TeamsController < ApplicationController 
+
 
   def index
     @teams = Team.all 
   end
 
   def show
+    @characters = Character.all
     @team = Team.find params[:id] 
-    @all_characters = Character.all
+    @users_in_team = @team.users
+    @team_count = @users_in_team.count
   end
 
   def new
@@ -29,10 +31,26 @@ class TeamsController < ApplicationController
     redirect_to teams_path
   end
 
+  def join
+    @team = Team.find params[:id]
+    @team_count = @team.users.count
+    if @team_count <= 5
+      @current_user.update_attribute(:team_id, @team.id)
+      redirect_to @team
+    else
+      redirect_to teams_path
+    end   
+  end
+
+  def leave
+    @team = Team.find params[:id]
+    @current_user.update_attribute(:team_id, nil)
+    redirect_to root_path
+  end
+
   private   
 
   def team_params
     params.require(:team).permit(:teamname, :image, :characters_id)
   end
-
 end

@@ -9,11 +9,12 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  point_id        :integer
+#  team_id         :integer
 #
 
 class User < ActiveRecord::Base
 	has_secure_password
 	belongs_to :team
-
+	has_many :points		
 	validates :username, :presence => true, :uniqueness => true
 end

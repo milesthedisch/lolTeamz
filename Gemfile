@@ -1,3 +1,4 @@
+ruby '2.2.3'
 source 'https://rubygems.org'
 gem 'dotenv-rails', :groups => [:development, :test]
 
@@ -50,7 +51,6 @@ group :development, :test do
   gem 'spring'
 
   gem 'pry-rails'
-  ruby '2.2.0'
 
 end
 

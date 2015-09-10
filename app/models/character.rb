@@ -7,9 +7,8 @@
 #  image      :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  team_id    :integer
 #
 
 class Character < ActiveRecord::Base
-	belongs_to :team
+	has_and_belongs_to_many :teams	
 end

@@ -1,7 +1,18 @@
-<h1>All the characters</h1>
+<div class="wrapper">
+	<h1 class="list-header">All the characters</h1>
+		<% counter = 0 %>
+		<% until counter >= @characters.count %>
+			<div>
+				<div class="list-container">
+					<% 6.times do %>
+						<div class="list-item">
+							<%= link_to (image_tag( @characters[counter].image, :alt => @characters[counter].name, :title => @characters[counter].name)), @characters[counter] %>
+						</div>
+						<% counter += 1 %>		
+					<% end %>
+					<div class="clear"></div>
+				</div>
+			</div>
+		<% end %>
+</div>	
 
-<% @characters.each do |char| %>
-	<h3 class="list-item">
-		<%= link_to (image_tag char.image, :alt => "#{char.name}"), char %>
-	</h3>
-<% end %>

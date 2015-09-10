@@ -11,5 +11,5 @@
 
 class Team < ActiveRecord::Base
 	has_many :users
-	has_many :characters
+	has_and_belongs_to_many :characters		
 end

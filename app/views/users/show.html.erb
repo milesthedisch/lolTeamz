@@ -1,0 +1,24 @@
+
+
+
+<%@wins = @wins_array.select { |t| t == true } %>
+	<div>Wins: <%= @wins.count %></div>
+<%@losses = @wins_array.select { |f| f == false } %>
+	<div>Losses: <%= @losses.count %></div>
+
+<% @kills_array = @kills_array.select { |f| f != nil || 0 } %>
+<% @deaths_array = @kills_array.select { |f| f != nil || 0 } %>
+<% @assists_array = @assists_array.select { |f| f != nil || 0 } %>
+
+<% @total_kills = @kills_array.inject(:+) %>
+<% @total_deaths = @deaths_array.inject(:+) %>
+<% @total_assists = @assists_array.inject(:+) %>
+
+
+
+<% @kda = (@total_kills.to_f + @total_assists.to_f) / @total_deaths.to_f%>
+<% if @kda.to_s != 'Infinity' %>
+	<div> Your KDA over 10 days: <%= @kda %> </div>
+<% else %>
+	<div> You dont enough games to calculate </div>
+<% end %>
