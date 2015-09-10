@@ -18,10 +18,10 @@ class UsersController < ApplicationController
   	@kills_array = []
   	@assists_array = []
   	@summoner_games.each do |games|
-  		@wins_array << games["stats"]["win"]
-  		@deaths_array << games["stats"]["numDeaths"]
-  		@kills_array << games["stats"]["championsKilled"]
-  		@assists_array << games["stats"]["assists"]
+		@wins_array << games["stats"]["win"]
+		@deaths_array << games["stats"]["numDeaths"]
+		@kills_array << games["stats"]["championsKilled"]
+		@assists_array << games["stats"]["assists"]
   	end
   end
 

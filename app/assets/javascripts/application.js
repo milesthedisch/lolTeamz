@@ -11,6 +11,17 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require turbolinks
+//= require jquery_ujs	
 //= require_tree .
+//= require skrollr
+//= require skrollr.ie
+
+
+
+$(document).ready(function(){
+	var s = skrollr.init()
+	$(".list-items").each(function(index) {
+    	$(this).hide().delay(500*index).fadeIn(500);
+	});
+
+})

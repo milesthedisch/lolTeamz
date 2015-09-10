@@ -7,6 +7,7 @@
 #  image      :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  lore       :text
 #
 
 class Character < ActiveRecord::Base

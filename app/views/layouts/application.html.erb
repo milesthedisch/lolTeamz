@@ -2,26 +2,42 @@
 <html>
 <head>
   <title>LolTeamz</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav>
-  <%= link_to 'Home', '/' %>
-  <% if @current_user.present? %>
-    <%= link_to "Edit profile", edit_user_path %>
-    <%= link_to "Logout #{ @current_user.username }", login_path, :method => 'delete', :data => { :confirm => 'Are you sure you wish to logout?' } %>
-    <%= link_to "Create Team", new_team_path %>
-    <%= link_to "Look for a Team", teams_path %>
-    <%= link_to "#{@current_user.username} stats", @current_user  %>
-  <% else %>
-    <%= link_to 'Create Account', new_user_path %>
-    <%= link_to 'Login', login_path %>
-  <% end %>
-</nav>
 
-<%= yield %>
+  <div class="top-container" data-0="background-color:rgb(240,248,255); box-shadow: 0px 0px 0px 0px gray;" data-100="background-color:rgb(245,245,220); box-shadow: 0 2px 2px -2px black;">
+
+    <div class="logo">
+      <%=link_to image_tag('icon.png', size: "90x90"), root_path %>
+    </div>
+
+    <nav class="main-nav" >
+      <%= link_to 'Home', '/' %>
+      <% if @current_user.present? %>
+        <%= link_to "Edit profile", edit_user_path %>
+        <%= link_to "Logout", login_path, :method => 'delete', :data => { :confirm => 'Are you sure you wish to logout?' } %>
+        <%= link_to "Create Team", new_team_path %>
+        <%= link_to "Look for a Team", teams_path %>
+        <%= link_to "My stats", @current_user  %>
+      <% else %>
+        <%= link_to 'Create Account', new_user_path %>
+        <%= link_to 'Login', login_path %>
+      <% end %>
+    </nav>
+  </div> 
+
+<div class="main-ground">
+    <%= yield %>
+ </div>
+
+
+
+</div>
+
 
 </body>
 </html>

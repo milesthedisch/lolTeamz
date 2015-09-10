@@ -1,25 +1,33 @@
-<h1><%= @team.teamname %></h1>
-	
-	<div class="list-header">
-		<% @users_in_team.each do |user| %>
-			<p>
-			<%= user.username %>
-			</p>
-			<%= form_for @team do |f|%>
-			  <p>
-			    <label>Character</label>
-			    <%= f.select :characters, Character.all.map { |character| [ character.name, character.id ] }, :include_blank => true%>
-			  </p>
-			  <% end %>
-		<% end %>
+<div class="draft-container">
+	<h1 class="list-header"><%= @team.teamname %></h1>
+		
+		<div class="user-select">
+			<% @users_in_team.each do |user| %>
+				<div class="user-title">
+				<%= user.username %>
+				</div>	
+				<%= form_for @team do |f|%>
+				  <div class="user-select-form">
+				    <label>Character</label>
+				    <%= f.select :characters, Character.all.map { |character| [ character.name, character.id ] }, :include_blank => true%>
+				  </div>
+				  <%= f.submit %>
+				  <% end %>
+			<% end %>
+		</div>	
+
+	<div>
+		<div class="button">
+			<% unless @team_count >= 5 %>
+				<%= link_to 'join', join_team_path(@team) %>
+			<% end %>
+		</div>
+
+		<div class="button">
+			<%= link_to 'leave', leave_team_path(@team) %>
+		</div>
+		
 	</div>
-
-<div>
-	<% unless @team_count >= 5 %>
-		<%= link_to 'join', join_team_path(@team) %>
-	<% end %>
-
-	<%= link_to 'leave', leave_team_path(@team) %>	
 </div>
 
 

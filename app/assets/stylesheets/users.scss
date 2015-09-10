@@ -1,3 +1,97 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.user-edit-container {
+    margin: 8em auto;
+    max-width: 336px;
+
+}
+
+.user-edit-container form { 
+	border-radius: .25em;
+    border-color: #766e4c;
+    background-color: #000;
+    background-color: rgba(0,0,0,0.85);
+    padding: 1rem
+}
+
+.user-edit-container input {
+	width: 100%;
+	background: linear-gradient(to bottom, rgba(73,72,61,0.5), rgba(103,102,92,0.5));
+    border-color: #4d4a40;
+    border-color: rgba(144,137,115,0.5);
+    color: #fff;
+    font-family: Tahoma,sans-serif
+}
+
+.user-edit-input {
+	display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px
+}
+
+.user-edit-container input:focus {
+	border-color: rgba(144,137,115,1);
+	background-color: linear-gradient(to top, rgba(73,72,61,1), rgba(103,102,92,0.5));
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
+
+
+.user-edit-container label {
+	font-family: serif;
+    font-weight: normal;
+    color: #d3c7a9;
+}
+
+.user-edit-container .gold-submit {
+	background: #af5b06;
+    background: -webkit-linear-gradient(top, #e29601, #6a0d0c);
+    background: -moz-linear-gradient(top, #e29601, #6a0d0c);
+    background: -o-linear-gradient(top, #e29601, #6a0d0c);
+    background: -ms-linear-gradient(top, #e29601, #6a0d0c);
+    background: linear-gradient(to bottom, #e29601, #6a0d0c);
+    -webkit-box-shadow: 0 0 5px #b83d00;
+    box-shadow: 0 0 5px #b83d00;
+    font-family: "BeaufortforLOL-Bold";
+    font-width: normal !important;
+    font-style: normal !important;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=../images/hIEfix.png,sizingMethod=crop);
+    letter-spacing: 0;
+    zoom: 1;
+    -webkit-font-kerning: normal;
+    -webkit-font-feature-settings: "kern" 1;
+    text-transform: uppercase;
+    width: 30%;
+    transition: all 0.3s ease-in-out;
+}
+
+.gold-submit:hover {
+	box-shadow: 0 0 30px #b83d00;
+}
+.user-select {
+	width: 27%;
+	margin: 0 auto;
+	font-family: 'Sorts Mill Goudy', serif;
+}
+
+.user-select div { 
+	display: inline-block;
+}
+
+.user-title {
+	text-align: center;
+	text-transform: uppercase;
+	padding: 1rem;
+}

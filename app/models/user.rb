@@ -10,6 +10,7 @@
 #  updated_at      :datetime         not null
 #  point_id        :integer
 #  team_id         :integer
+#  character_id    :integer
 #
 
 class User < ActiveRecord::Base

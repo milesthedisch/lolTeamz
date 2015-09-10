@@ -1,25 +1,28 @@
-<% if @user.errors.any? %>
-	<ol>
-		<% @user.errors.full_messages.each do |msg| %>
-			<li>
-				<%= msg %>
-			</li>
-		<% end %>
-	</ol>
-<% end %>
-<%= form_for @user do |f| %>
-	<p>
-		<%= f.label :username %>
-		<%= f.text_field :username %>
-	</p>
-	<p>
-		<%= f.label :password %>
-		<%= f.password_field :password %>
-	</p>
-	<p>
-		<%= f.label :password_confirmation %>
-		<%= f.password_field :password_confirmation %>
-	</p>
 
-	<%= f.submit %>
-<% end %>
+<div class="user-edit-container">
+	<% if @user.errors.any? %>
+		<ol>
+			<% @user.errors.full_messages.each do |msg| %>
+				<li>
+					<%= msg %>
+				</li>
+			<% end %>
+		</ol>
+	<% end %>
+	<%= form_for @user do |f| %>
+		<p>
+			<%= f.label :username %>
+			<%= f.text_field :username, :class => "user-edit-input"%>
+		</p>
+		<p>
+			<%= f.label :password %>
+			<%= f.password_field :password, :class => "user-edit-input"%>
+		</p>
+		<p>
+			<%= f.label :password_confirmation %>
+			<%= f.password_field :password_confirmation, :class => "user-edit-input"%>
+		</p>
+
+		<%= f.submit :class => "gold-submit" %>
+	<% end %>
+</div>
