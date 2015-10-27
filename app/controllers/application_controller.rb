@@ -10,23 +10,20 @@ class ApplicationController < ActionController::Base
   
 
   private
+
   def fetch_current_user
     # Check if there's someone logged in whose data we need to load for them.
-    # session[:user_id] = nil
-    @current_user = User.find_by :id => session[:user_id]
-    if @current_user
-
+    if session[:user_id].present?
+    	@current_user = User.find_by :id => session[:user_id]
   		@client = Taric.client(region: :oce)
   		@summoner_name = @client.summoners_by_names(summoner_names: "#{@current_user.username}")
-
       # .find_by is safer than .find for non-existent IDs because it won't throw an error.
       # Stop trying to log this user_id in if we can't find them in the database.
-    # else
-      # redirect_to login_path
+      session[:user_id] = nil unless @current_user.present?
     end
-    # session[:user_id] = nil unless @current_user.present?
   end
 
+  # Fetch characters if characters arent already in the database
   def fetch_all_characters
     if Character.count <= 126
 
@@ -36,9 +33,9 @@ class ApplicationController < ActionController::Base
       @client = Taric.client(region: :oce)
       characters = @client.static_champions["data"]
 
-      characters.each do |char|
-        Character.create :name => "#{char[1]['name']}", :image => "http://ddragon.leagueoflegends.com/cdn/5.13.1/img/champion/#{char[1]['key']}.png"
-      end
+       characters.each do |char|
+	       Character.create :name => "#{char[1]['name']}", :image => "http://ddragon.leagueoflegends.com/cdn/5.13.1/img/champion/#{char[1]['key']}.png"
+        end
 
       @characters = Character.all
       @lore.each_with_index do |lore, i|

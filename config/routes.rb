@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  
   resources :characters
+
   resources :teams do 
     member do
       get 'join'
@@ -14,4 +16,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/login' => 'sessions#destroy'
+
+  get '/test' => 'sessions#test'
+  
 end

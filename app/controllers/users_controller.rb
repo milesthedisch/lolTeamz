@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
+
   	@summoner_id = @summoner_name["#{@current_user.username}"]["id"]
   	@summoner_games = @client.recent_games(summoner_id: @summoner_id)
   	@summoner_games = @summoner_games["games"]
@@ -17,12 +18,25 @@ class UsersController < ApplicationController
   	@deaths_array = []
   	@kills_array = []
   	@assists_array = []
-  	@summoner_games.each do |games|
-		@wins_array << games["stats"]["win"]
-		@deaths_array << games["stats"]["numDeaths"]
-		@kills_array << games["stats"]["championsKilled"]
-		@assists_array << games["stats"]["assists"]
-  	end
+    @gold_array = []
+    @champs_array = []
+    @champions_played = []
+    @champion_images = [] 
+
+    	@summoner_games.each do |games|
+        @champs_array << games["championId"]
+    		@wins_array << games["stats"]["win"]
+    		@deaths_array << games["stats"]["numDeaths"]
+    		@kills_array << games["stats"]["championsKilled"]
+    		@assists_array << games["stats"]["assists"]
+        @gold_array << games['stats']["goldEarned"]
+    	end
+
+      # Champs names displayed on the show page
+      @champs_array.each do |champ|
+       @champions_played << @client.static_champion(id: champ)["name"]
+      end
+
   end
 
   def create

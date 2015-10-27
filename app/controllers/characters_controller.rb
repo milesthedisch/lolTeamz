@@ -1,6 +1,7 @@
 
 
 class CharactersController < ApplicationController
+
   def show
   	@character = Character.find params[:id]
   end
@@ -8,4 +9,5 @@ class CharactersController < ApplicationController
   def index
   	@characters = Character.all
   end
+  
 end

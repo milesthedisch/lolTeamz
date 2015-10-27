@@ -1,5 +1,51 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.lol-promo {
+  background: #18202c url("http://s.cdpn.io/800/container-bg_2.png");
+  border: 1px solid #273144;
+  box-shadow: 0 0 12px rgba(0,0,0,.3); /* Add drop shadow to container */
+  height: 3rem; /* Pre-determined for this example */
+  z-index: 100; 
+  padding: 36px 12px;
+  position: fixed; /* Positioning reference for children */
+  width: 100%; /* Pre-determined for this example */
+  border-bottom: 1px solid rgba(0,0,0,0.5);
+}
+
+.soraka-image {
+  background: url("http://s.cdpn.io/800/soraka-overlap.png") no-repeat;
+  content: "";
+  height: 370px;
+  position: absolute;
+  top: -12px; left: -21px;
+  width: 427px;
+}
+
+/* Ornaments */
+
+.lol-promo:before,
+.lol-promo:after {
+  background: url("http://s.cdpn.io/800/ornaments-sprite.png") no-repeat;
+  content: "";
+  height: 40px;
+  position: absolute;
+  top: 0; left: 0;
+  width: 95px;
+}
+
+.lol-promo:after {
+  background-position: -95px 0;
+  left: auto; right: 0;
+}
+
+/* Stacking Order */
+
+.lol-promo:before,
+.lol-promo:after,
+.introduction,
+.content { z-index: 10000000; } /* Make sure Soraka does not overlap anything */
+
+
 
 

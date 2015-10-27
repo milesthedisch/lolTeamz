@@ -80,22 +80,21 @@ div.list-item:hover img {
 	-ms-transform: scale( 1 );
 	-o-transform: scale( 1 );
 	transform: scale( 1.3);
-	z-index: 100;
+	z-index: 101;
 	position: relative;
 }
 
 .top-container {	
 	width: 100%;
 	position: fixed;
-    z-index: 99;
+    z-index: 101;
 
 }
 
 .main-nav, a:visited {
 	width: 69%;
-	text-align: center;
-	padding-right: 1rem;
-	line-height: 85px;
+	padding-right: 10rem;
+	line-height: 81px;
 	float: right;
 	color: black;
 	font-weight: 10px;
@@ -105,12 +104,6 @@ div.list-item:hover img {
 .main-nav a:link {
 	text-decoration: none;
 	padding: 0 0.3rem;
-}
-
-
-.logo {
-	display: inline-block;
-	padding-left: 1rem
 }
 
 .main-ground {
@@ -125,12 +118,7 @@ div.list-item:hover img {
 	margin: 0 auto;
 }
 
-
-/*div.list-container:hover div.list-item {
-  width: 10%;
+span {
+	color: #E5E4E2;
 }
 
-div.list-container:hover div.list-item:hover {
-  width: 50%;
-}
-*/

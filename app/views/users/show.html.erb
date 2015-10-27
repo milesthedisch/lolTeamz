@@ -10,17 +10,29 @@
 <% @kills_array = @kills_array.select { |f| f != nil } %>
 <% @deaths_array = @kills_array.select { |f| f != nil} %>
 <% @assists_array = @assists_array.select { |f| f != nil} %>
+<% @gold_array = @gold_array.select { |f| f != nil} %>
 
+<% @total_gold = @gold_array.inject(:+) %>
 <% @total_kills = @kills_array.inject(:+) %>
 <% @total_deaths = @deaths_array.inject(:+) %>
 <% @total_assists = @assists_array.inject(:+) %>
 
 
 <div class="draft-container">
-<% @kda = (@total_kills.to_f + @total_assists.to_f) / @total_deaths.to_f%>
-	<% if @kda.to_s != 'Infinity' %>
+	<% @kda = (@total_kills.to_f + @total_assists.to_f) / @total_deaths.to_f%>
+	<% if @kda.to_s != 'Infinity' || 'NaN' %>
 	<div> Your KDA over 10 days: <%= @kda %> </div>
 	<% else %>
 	<div> You dont enough games to calculate </div>
 	<% end %>
+	<div>Average Gold per Game: <%= @total_gold / 10 %> gold</div>
 </div>	
+
+<div class="draft-container">
+	<li style="list-style: none;">Champs You Played</li>
+   	<% @champions_played.each do |champ| %>
+        <%=image_tag (Character.find_by! name: champ.to_s).image %>
+  	<% end %>
+
+</div>
+

@@ -9,26 +9,25 @@
 </head>
 <body>
 
-  <div class="top-container" data-0="background-color:rgb(240,248,255); box-shadow: 0px 0px 0px 0px gray;" data-100="background-color:rgb(245,245,220); box-shadow: 0 2px 2px -2px black;">
-
-    <div class="logo">
-      <%=link_to image_tag('icon.png', size: "90x90"), root_path %>
-    </div>
-
-    <nav class="main-nav" >
-      <%= link_to 'Home', '/' %>
+  <div class="top-container">
+       <nav class="main-nav" >
+     <span><i class="fa fa-home"></i> <%= link_to 'Home', '/', {:style => 'color: #E5E4E2;'}  %></span>
       <% if @current_user.present? %>
-        <%= link_to "Edit profile", edit_user_path %>
-        <%= link_to "Logout", login_path, :method => 'delete', :data => { :confirm => 'Are you sure you wish to logout?' } %>
-        <%= link_to "Create Team", new_team_path %>
-        <%= link_to "Look for a Team", teams_path %>
-        <%= link_to "My stats", @current_user  %>
+        <span><i class="fa fa-pencil-square"></i> <%= link_to "Profile", edit_user_path, {:style => 'color: #E5E4E2;'} %></span>
+        <span style="color: #E5E4E2"><i class="fa fa-sign-out"></i> <%= link_to "Logout", login_path, {:style => 'color: #E5E4E2', :method => 'delete', :data => { :confirm => 'Are you sure you wish to logout?'} }%></span>
+        <span><i class="fa fa-plus-square"></i><%= link_to "Team", new_team_path, {:style => 'color: #E5E4E2;'}  %></span>
+        <span><i class="fa fa-search"></i><%= link_to "for a Team", teams_path, {:style => 'color: #E5E4E2;'}  %></span>
+        <span><i class="fa fa-history"></i> <%= link_to "stats", @current_user, {:style => 'color: #E5E4E2;'} %></span>
       <% else %>
         <%= link_to 'Create Account', new_user_path %>
         <%= link_to 'Login', login_path %>
       <% end %>
     </nav>
   </div> 
+
+    <section class="lol-promo">
+      <span class="soraka-image"></span>
+    </section>
 
 <div class="main-ground">
     <%= yield %>
