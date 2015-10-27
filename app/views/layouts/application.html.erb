@@ -14,7 +14,7 @@
      <span><i class="fa fa-home"></i> <%= link_to 'Home', '/', {:style => 'color: #E5E4E2;'}  %></span>
       <% if @current_user.present? %>
         <span><i class="fa fa-pencil-square"></i> <%= link_to "Profile", edit_user_path, {:style => 'color: #E5E4E2;'} %></span>
-        <span style="color: #E5E4E2"><i class="fa fa-sign-out"></i> <%= link_to "Logout", login_path, {:style => 'color: #E5E4E2', :method => 'delete', :data => { :confirm => 'Are you sure you wish to logout?'} }%></span>
+        <span><i class="fa fa-sign-out"></i> <%= link_to "Logout", login_path, {:style => 'color: #E5E4E2', :method => 'delete', :data => { :confirm => 'Are you sure you wish to logout?'} }%></span>
         <span><i class="fa fa-plus-square"></i><%= link_to "Team", new_team_path, {:style => 'color: #E5E4E2;'}  %></span>
         <span><i class="fa fa-search"></i><%= link_to "for a Team", teams_path, {:style => 'color: #E5E4E2;'}  %></span>
         <span><i class="fa fa-history"></i> <%= link_to "stats", @current_user, {:style => 'color: #E5E4E2;'} %></span>
